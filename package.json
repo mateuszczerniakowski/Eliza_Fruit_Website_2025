@@ -6,11 +6,16 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --configuration=production",
+    "build:gh-pages": "ng build --configuration=production --base-href='/Eliza_Fruit_Website_2025/'",
     "build:analyze": "ng build --configuration=production --stats-json && npx webpack-bundle-analyzer dist/eliza_fruit_website/stats.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "translate:init": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{en,pl}.json --clean --sort --format json --default-language en",
-    "translate:extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{en,pl}.json --clean --sort --format json"
+    "translate:extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{en,pl}.json --clean --sort --format json",
+    "docker:build": "docker build -t eliza-fruit-website .",
+    "docker:run": "docker run -p 8080:80 eliza-fruit-website",
+    "docker:compose": "docker-compose up -d",
+    "deploy:gh-pages": "npm run build:gh-pages && touch dist/eliza_fruit_website/.nojekyll && git subtree push --prefix dist/eliza_fruit_website origin gh-pages"
   },
   "private": true,
   "dependencies": {
