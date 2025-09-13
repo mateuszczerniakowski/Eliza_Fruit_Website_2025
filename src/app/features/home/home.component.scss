@@ -19,10 +19,27 @@
     transform: translate(-50%, -50%);
     object-fit: cover;
     background-color: #000;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: optimize-contrast;
+    
+    // Performance optimizations
+    will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    
+    // Smooth loading transition
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    
+    &[data-loaded="true"] {
+      opacity: 1;
+    }
+    
+    // Responsive sizing
+    @media (max-width: 768px) {
+      // On mobile, prioritize performance over quality
+      image-rendering: auto;
+    }
   }
 
   .video-overlay {
