@@ -5,16 +5,17 @@
     muted 
     loop 
     playsinline
-    preload="metadata"
+    preload="none"
+    loading="lazy"
     class="video-element"
     poster="assets/images/video-poster.jpg">
-    <!-- WebM for better compression -->
-    <source src="assets/videos/background_1080p.webm" type="video/webm">
+    <!-- Load smaller videos first for better performance -->
     <source src="assets/videos/background_720p.webm" type="video/webm">
-    
-    <!-- MP4 fallbacks -->
-    <source src="assets/videos/background_1080p.mp4" type="video/mp4">
     <source src="assets/videos/background_720p.mp4" type="video/mp4">
+    
+    <!-- Higher quality fallbacks -->
+    <source src="assets/videos/background_1080p.webm" type="video/webm">
+    <source src="assets/videos/background_1080p.mp4" type="video/mp4">
   </video>
   <div class="video-overlay"></div>
 </div>

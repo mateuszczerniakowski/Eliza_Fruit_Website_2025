@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration=production",
+    "build:analyze": "ng build --configuration=production --stats-json && npx webpack-bundle-analyzer dist/eliza_fruit_website/stats.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "translate:init": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{en,pl}.json --clean --sort --format json --default-language en",
