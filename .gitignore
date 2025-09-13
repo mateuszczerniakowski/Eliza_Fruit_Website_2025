@@ -40,3 +40,8 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# FFmpeg binaries
+ffmpeg
+ffmpeg.zip
+*.exe
