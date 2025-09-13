@@ -1,0 +1,50 @@
+<nav class="navbar" [class.white]="shouldShowWhiteNavbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <a routerLink="/home" class="brand-link">
+        <img src="/assets/images/eliza_white.png" alt="{{ 'BRAND_NAME' | translate }}" class="brand-logo">
+      </a>
+    </div>
+
+    <ul class="navbar-menu" [class.active]="isMenuOpen">
+      <li class="navbar-item">
+        <a routerLink="/home" class="navbar-link" [class.active]="activePage === 'home'" (click)="closeMenu()">{{ 'NAV.HOME' | translate }}</a>
+      </li>
+      <li class="navbar-item">
+        <a routerLink="/products" class="navbar-link" [class.active]="activePage === 'products'" (click)="closeMenu()">{{ 'NAV.PRODUCTS' | translate }}</a>
+      </li>
+      <li class="navbar-item">
+        <a routerLink="/services" class="navbar-link" [class.active]="activePage === 'services'" (click)="closeMenu()">{{ 'NAV.SERVICES' | translate }}</a>
+      </li>
+      <li class="navbar-item">
+        <a routerLink="/about" class="navbar-link" [class.active]="activePage === 'about'" (click)="closeMenu()">{{ 'NAV.ABOUT' | translate }}</a>
+      </li>
+      <li class="navbar-item">
+        <a routerLink="/contact" class="navbar-link" [class.active]="activePage === 'contact'" (click)="closeMenu()">{{ 'NAV.CONTACT' | translate }}</a>
+      </li>
+      <div class="language-selector" [class.open]="isLanguageDropdownOpen">
+        <button class="language-button" (click)="toggleLanguageDropdown()">
+          {{ getCurrentLanguageLabel() }}
+          <span class="language-arrow" [class.rotated]="isLanguageDropdownOpen">▼</span>
+        </button>
+        <div class="language-menu" [class.visible]="isLanguageDropdownOpen">
+          <button class="language-option" [class.active]="currentLanguage === 'en'" (click)="switchLanguage('en')">
+            EN
+          </button>
+          <button class="language-option" [class.active]="currentLanguage === 'pl'" (click)="switchLanguage('pl')">
+            PL
+          </button>
+        </div>
+      </div>
+    </ul>
+
+
+    <div class="mobile-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="mobile-menu-overlay" [class.active]="isMenuOpen" (click)="toggleMenu()"></div>
+</nav>

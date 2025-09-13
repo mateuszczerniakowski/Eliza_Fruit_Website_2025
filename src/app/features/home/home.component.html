@@ -1,0 +1,30 @@
+<div class="video-container">
+  <video 
+    #backgroundVideo
+    autoplay 
+    muted 
+    loop 
+    playsinline
+    preload="auto"
+    class="video-element"
+    [style.width.px]="1920"
+    [style.height.px]="1080">
+    <source src="/videos/13896677_3840_2160_30fps.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+</div>
+
+<main class="main-content">
+  <section class="hero">
+    <div class="hero__container">
+      <p class="hero__subtitle">{{ 'HERO.SUBTITLE' | translate }}</p>
+      <h1 class="hero__title">{{ 'HERO.TITLE' | translate }}</h1>
+      <div class="hero__actions">
+        <app-button variant="orange">{{ 'HERO.CTA_PRIMARY' | translate }}</app-button>
+      </div>
+    </div>
+  </section>
+  <div class="home-page">
+  <h1 class="page-title">Home</h1>
+</div>
+</main>

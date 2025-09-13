@@ -1,0 +1,16 @@
+.products-page {
+  background-color: var(--theme-color-bg_color);
+  color: var(--theme-color-text_dark);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.page-title {
+  font-size: var(--font-size-section-title);
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}

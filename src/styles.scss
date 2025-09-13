@@ -1,1 +1,195 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Import Roboto font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Import Halyard Display font - using a web font service or local files */
+/* Note: Halyard is a premium font. Using fallbacks for now */
+
+/* CSS Color Variables - Theme Colors */
+:root {
+  /* Main Theme Colors */
+  --theme-color-bg_color: #FFFFFF;
+  --theme-color-bd_color: #DDDAD3;
+  --theme-color-text: #615D58;
+  --theme-color-text_light: #FFFFFF;
+  --theme-color-text_dark: #0A1108;
+  --theme-color-text_link: #DCB000;
+  --theme-color-text_hover: #c7a001;
+  --theme-color-text_link2: #92BB53;
+  --theme-color-text_hover2: #80AB3E;
+  --theme-color-text_link3: #080f15;
+  --theme-color-text_hover3: #4F769D;
+  
+  /* Alternative Theme Colors */
+  --theme-color-alter_bg_color: #FAF7F0;
+  --theme-color-alter_bg_hover: #EEE9DE;
+  --theme-color-alter_bd_color: #DDDAD3;
+  --theme-color-alter_bd_hover: #C7C3BB;
+  --theme-color-alter_text: #615D58;
+  --theme-color-alter_light: #9D9890;
+  --theme-color-alter_dark: #0A1108;
+  --theme-color-alter_link: #DCB000;
+  --theme-color-alter_hover: #c7a001;
+  --theme-color-alter_link2: #92BB53;
+  --theme-color-alter_hover2: #80AB3E;
+  --theme-color-alter_link3: #7198BA;
+  --theme-color-alter_hover3: #4F769D;
+  
+  /* Extra Theme Colors (Dark) */
+  --theme-color-extra_bg_color: #192217;
+  --theme-color-extra_bg_hover: #3f3d47;
+  --theme-color-extra_bd_color: #313131;
+  --theme-color-extra_bd_hover: #575757;
+  --theme-color-extra_text: #D2D3D5;
+  --theme-color-extra_light: #afafaf;
+  --theme-color-extra_dark: #FFFFFF;
+  --theme-color-extra_link: #F2C200;
+  --theme-color-extra_hover: #FFFFFF;
+  --theme-color-extra_link2: #92BB53;
+  --theme-color-extra_hover2: #80AB3E;
+  --theme-color-extra_link3: #7198BA;
+  --theme-color-extra_hover3: #4F769D;
+  
+  /* Input Colors */
+  --theme-color-input_bg_color: transparent;
+  --theme-color-input_bg_hover: transparent;
+  --theme-color-input_bd_color: #DDDAD3;
+  --theme-color-input_bd_hover: #C7C3BB;
+
+  /* Font Size Variables */
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1rem;      /* 16px - base font size */
+  --font-size-lg: 1.125rem;    /* 18px */
+  --font-size-xl: 1.25rem;     /* 20px */
+  --font-size-2xl: 1.5rem;     /* 24px */
+  --font-size-3xl: 1.875rem;   /* 30px */
+  --font-size-4xl: 2.25rem;    /* 36px */
+  --font-size-5xl: 3rem;       /* 48px */
+  --font-size-6xl: 3.75rem;    /* 60px */
+  --font-size-7xl: 4.5rem;     /* 72px */
+  --font-size-8xl: 6rem;       /* 96px */
+  --font-size-9xl: 7rem;       /* 112px */
+  
+  /* Semantic Font Sizes for Components */
+  --font-size-hero-title: var(--font-size-7xl);      /* Large hero titles */
+  --font-size-hero-subtitle: var(--font-size-2xl);   /* Hero subtitles */
+  --font-size-section-title: var(--font-size-5xl);   /* Section headings */
+  --font-size-card-title: var(--font-size-3xl);      /* Card headings */
+  --font-size-body-large: var(--font-size-lg);       /* Large body text */
+  --font-size-body-text: var(--font-size-base);      /* Regular body text */
+  --font-size-small-text: var(--font-size-sm);       /* Small text/captions */
+
+  /* Letter Spacing Variables for Better Typography */
+  --letter-spacing-tight: -0.025em;    /* Tight spacing for large headings */
+  --letter-spacing-normal: 0.01em;     /* Normal spacing for most text */
+  --letter-spacing-wide: 0.025em;      /* Wide spacing for emphasis */
+  --letter-spacing-wider: 0.05em;      /* Extra wide for buttons/labels */
+  --letter-spacing-widest: 0.1em;      /* Maximum spacing for special cases */
+}
+
+/* Set Halyard Display as the default font for the entire application */
+* {
+  font-family: 'Halyard Display', 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Halyard Display', 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: var(--font-size-base); // 16px base font size
+  letter-spacing: var(--letter-spacing-normal) !important; /* Base letter spacing */
+}
+
+/* Typography improvements with better letter spacing */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: var(--letter-spacing-tight) !important; /* Tight spacing for large headings */
+}
+
+p {
+  letter-spacing: var(--letter-spacing-normal) !important; /* Normal spacing for paragraphs */
+}
+
+span, div {
+  letter-spacing: var(--letter-spacing-normal) !important; /* Normal spacing for body text */
+}
+
+button, .btn, app-button button {
+  letter-spacing: var(--letter-spacing-wider) !important; /* Wider spacing for buttons */
+  text-transform: uppercase;
+}
+
+nav, .navbar, .navbar-link {
+  letter-spacing: var(--letter-spacing-wide) !important; /* Better navigation readability */
+}
+
+.hero-title {
+  letter-spacing: var(--letter-spacing-tight) !important; /* Tight spacing for hero title */
+}
+
+.hero-subtitle {
+  letter-spacing: var(--letter-spacing-normal) !important; /* Normal spacing for hero subtitle */
+}
+
+small, .small-text {
+  letter-spacing: var(--letter-spacing-normal) !important; /* Keep small text readable */
+}
+
+/* Mobile-first responsive font size handling - Global approach */
+:root {
+  /* Responsive Hero Font Sizes (Mobile First) */
+  --font-size-hero-title-responsive: var(--font-size-3xl);     /* Mobile: 30px */
+  --font-size-hero-subtitle-responsive: var(--font-size-base); /* Mobile: 16px */
+  
+  /* Responsive Section Font Sizes */
+  --font-size-section-title-responsive: var(--font-size-2xl);  /* Mobile: 24px */
+  --font-size-section-subtitle-responsive: var(--font-size-sm); /* Mobile: 14px */
+  
+  /* Responsive Body Font Sizes */
+  --font-size-body-responsive: var(--font-size-base);          /* Mobile: 16px */
+  --font-size-body-large-responsive: var(--font-size-lg);      /* Mobile: 18px */
+}
+
+/* Small Mobile and up (480px+) */
+@media (min-width: 30rem) {
+  :root {
+    --font-size-hero-title-responsive: var(--font-size-4xl);     /* 36px */
+    --font-size-hero-subtitle-responsive: var(--font-size-lg);   /* 18px */
+    --font-size-section-title-responsive: var(--font-size-3xl);  /* 30px */
+  }
+}
+
+/* Tablet and up (768px+) */
+@media (min-width: 48rem) {
+  :root {
+    --font-size-hero-title-responsive: var(--font-size-5xl);     /* 48px */
+    --font-size-hero-subtitle-responsive: var(--font-size-xl);   /* 20px */
+    --font-size-section-title-responsive: var(--font-size-4xl);  /* 36px */
+    --font-size-section-subtitle-responsive: var(--font-size-base); /* 16px */
+  }
+}
+
+/* Desktop and up (1024px+) */
+@media (min-width: 64rem) {
+  :root {
+    --font-size-hero-title-responsive: var(--font-size-6xl);     /* 60px */
+    --font-size-hero-subtitle-responsive: var(--font-size-2xl);  /* 24px */
+    --font-size-section-title-responsive: var(--font-size-5xl);  /* 48px */
+    --font-size-body-large-responsive: var(--font-size-xl);      /* 20px */
+  }
+}
+
+/* Large Desktop and up (1200px+) */
+@media (min-width: 75rem) {
+  :root {
+    --font-size-hero-title-responsive: var(--font-size-hero-title); /* 72px */
+  }
+}
+
+/* Extra Large Desktop (1440px+) */
+@media (min-width: 90rem) {
+  :root {
+    --font-size-hero-title-responsive: var(--font-size-9xl);     /* 96px */
+  }
+}
