@@ -1,0 +1,18 @@
+{
+  "BRAND_NAME": "Eliza Fruits",
+  "NAV": {
+    "HOME": "Home",
+    "PRODUCTS": "Products",
+    "SERVICES": "Services",
+    "ABOUT": "About Us", 
+    "CONTACT": "Contact"
+  },
+  "HERO": {
+    "SUBTITLE": "Cultivating Agriculture that Works for the Future",
+    "TITLE": "Our Agricultural Company",
+    "CTA_PRIMARY": "Contact Us Now"
+  },
+  "VIDEO": {
+    "CLICK_TO_PLAY": "Click anywhere to play video"
+  }
+}

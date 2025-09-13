@@ -1,0 +1,18 @@
+{
+  "BRAND_NAME": "Eliza Owoce",
+  "NAV": {
+    "HOME": "Strona główna",
+    "PRODUCTS": "Produkty",
+    "SERVICES": "Usługi",
+    "ABOUT": "O nas", 
+    "CONTACT": "Kontakt"
+  },
+  "HERO": {
+    "SUBTITLE": "Kultywowanie Rolnictwa dla Przyszłości",
+    "TITLE": "Nasza Firma Rolnicza",
+    "CTA_PRIMARY": "Skontaktuj się z nami"
+  },
+  "VIDEO": {
+    "CLICK_TO_PLAY": "Kliknij gdziekolwiek, aby odtworzyć wideo"
+  }
+}
