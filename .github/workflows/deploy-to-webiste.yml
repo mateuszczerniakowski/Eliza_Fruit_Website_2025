@@ -1,8 +1,8 @@
-name: Auto-Deploy to Webiste Repository
+name: Deploy Dev to Main Branch
 
 on:
   push:
-    branches: [ day1, main ]
+    branches: [ dev ]
   workflow_dispatch:
 
 jobs:
@@ -45,13 +45,13 @@ jobs:
         cp ../../webiste-dockerfile ./Dockerfile
         cp ../../webiste-nginx.conf ./nginx.conf
       
-    - name: Deploy to webiste repository
+    - name: Deploy to main branch
       run: |
         cd dist/eliza_fruit_website
         git init
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
-        git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/mateuszczerniakowski/webiste.git
+        git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         git add .
         git commit -m "Auto-deploy: $(date '+%Y-%m-%d %H:%M:%S') - Optimized build with Docker support"
         git branch -M main
@@ -60,7 +60,7 @@ jobs:
   docker-build:
     runs-on: ubuntu-latest
     needs: build-and-deploy
-    if: github.ref == 'refs/heads/day1'
+    if: github.ref == 'refs/heads/dev'
     
     steps:
     - name: Checkout code

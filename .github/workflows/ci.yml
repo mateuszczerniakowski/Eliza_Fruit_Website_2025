@@ -2,9 +2,9 @@ name: CI - Test and Quality Checks
 
 on:
   pull_request:
-    branches: [ day1, main ]
+    branches: [ dev, main ]
   push:
-    branches: [ day1, main ]
+    branches: [ dev ]
 
 jobs:
   test:

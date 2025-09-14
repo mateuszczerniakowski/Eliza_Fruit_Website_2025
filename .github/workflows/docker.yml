@@ -2,7 +2,7 @@ name: Docker Build and Publish
 
 on:
   push:
-    branches: [ day1, main ]
+    branches: [ dev ]
     tags: [ 'v*' ]
   workflow_dispatch:
 
