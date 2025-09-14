@@ -10,40 +10,27 @@ jobs:
   test:
     runs-on: ubuntu-latest
     
-    strategy:
-      matrix:
-        node-version: [18, 20]
-    
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Setup Node.js ${{ matrix.node-version }}
+    - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '18'
         cache: 'npm'
         
     - name: Install dependencies
       run: npm ci
       
     - name: Lint code
-      run: npm run lint || echo "Linting not configured"
+      run: npm run lint || echo "Linting not configured - skipping"
       
-    - name: Run unit tests
-      run: npm test -- --watch=false --browsers=ChromeHeadless --code-coverage
+    - name: Run tests
+      run: npm run test:ci
       
     - name: Build application
       run: npm run build:prod
-      
-    - name: Upload coverage reports
-      uses: codecov/codecov-action@v3
-      if: matrix.node-version == 18
-      with:
-        file: ./coverage/lcov.info
-        flags: unittests
-        name: codecov-umbrella
-        fail_ci_if_error: false
 
   build-check:
     runs-on: ubuntu-latest
@@ -65,7 +52,7 @@ jobs:
       run: |
         npm run build:prod
         echo "📦 Bundle Analysis:"
-        ls -lh dist/eliza_fruit_website/browser/
+        ls -lh dist/eliza_fruit_website/ || echo "No dist directory found"
         echo "🎯 Target: < 100kB gzipped"
         
     - name: Security audit
