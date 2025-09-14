@@ -1,4 +1,28 @@
-# ElizaFruitWebsite
+# Eliza Fruit Website
+
+A modern Angular 19 website showcasing fruit products and services with optimized performance and Docker deployment capabilities.
+
+## Repository Structure
+
+This repository uses a **dev/main branch workflow**:
+
+- **`dev` branch**: Contains all source code and development files  
+- **`main` branch**: Contains only the built website files for GitHub Pages deployment
+
+## Development Workflow
+
+1. **Development**: Work on the `dev` branch with all source code
+2. **Automatic Deployment**: When you push to `dev`, GitHub Actions automatically:
+   - Builds the Angular app with production optimizations
+   - Runs tests and quality checks  
+   - Deploys the built files to the `main` branch
+   - Updates the live website at https://mateuszczerniakowski.github.io/webiste/
+
+## Live Website
+
+🌐 **Live Site**: https://mateuszczerniakowski.github.io/webiste/
+
+## Local Development
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.1.
 
