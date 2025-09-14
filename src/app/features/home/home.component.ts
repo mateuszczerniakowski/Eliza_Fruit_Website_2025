@@ -13,6 +13,7 @@ import { VideoOptimizationService } from '../../services/video-optimization.serv
 export class HomeComponent implements AfterViewInit {
   @ViewChild('backgroundVideo') videoRef!: ElementRef<HTMLVideoElement>;
   
+  currentDate = new Date();
   private isSlowConnection = false;
 
   constructor(private videoOptimizationService: VideoOptimizationService) {}

@@ -174,3 +174,21 @@
   text-align: center;
   margin: 0;
 }
+
+.deployment-info {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  
+  .deployment-text {
+    color: #fff;
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+    opacity: 0.7;
+  }
+}
