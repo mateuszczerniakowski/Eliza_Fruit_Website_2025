@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, ElementRef } from '@angular/core';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -12,23 +13,30 @@ import { filter } from 'rxjs/operators';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   isMenuOpen = false;
-  activePage = 'home'; // Set home as active by default
-  currentLanguage = 'en'; // Default language
+  activePage = 'home';
+  currentLanguage = 'en';
   isLanguageDropdownOpen = false;
   isScrolled = false;
   isHomePage = true;
 
-  constructor(private translateService: TranslateService, private router: Router) {
+  private routerSubscription?: Subscription;
+
+  constructor(
+    private translateService: TranslateService, 
+    private router: Router,
+    private elementRef: ElementRef
+  ) {
     // Set default language
     this.translateService.setDefaultLang('en');
     this.translateService.use('en');
     
     // Listen to route changes to update active page
-    this.router.events.pipe(
+    this.routerSubscription = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       this.updateActivePage(event.urlAfterRedirects);
       this.isHomePage = event.urlAfterRedirects === '/home' || event.urlAfterRedirects === '/' || event.urlAfterRedirects === '';
+      this.closeMenu(); // Close mobile menu on route change
     });
     
     // Set initial state
@@ -44,15 +52,43 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     // Remove scroll listener
     window.removeEventListener('scroll', this.onScroll.bind(this));
+    
+    // Unsubscribe from router events
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
   }
 
+  @HostListener('window:scroll', ['$event'])
   private onScroll() {
     const scrollPosition = window.scrollY;
-    this.isScrolled = scrollPosition > 50; // Change navbar after 50px scroll
+    this.isScrolled = scrollPosition > 50;
+  }
+
+  @HostListener('document:click', ['$event'])
+  private onDocumentClick(event: Event) {
+    const target = event.target as HTMLElement;
+    const navbar = this.elementRef.nativeElement;
+    
+    // Close language dropdown if clicking outside
+    if (this.isLanguageDropdownOpen && !navbar.contains(target)) {
+      this.isLanguageDropdownOpen = false;
+    }
+  }
+
+  @HostListener('window:keydown.escape')
+  private onEscapeKey() {
+    if (this.isMenuOpen) {
+      this.closeMenu();
+    }
+    if (this.isLanguageDropdownOpen) {
+      this.isLanguageDropdownOpen = false;
+    }
   }
 
   get shouldShowWhiteNavbar(): boolean {
-    return !this.isHomePage || this.isScrolled;
+    // Always show white navbar on About page or when scrolled or not on home page
+    return this.activePage === 'about' || !this.isHomePage || this.isScrolled;
   }
 
   updateActivePage(url: string): void {
@@ -71,10 +107,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
+    
+    // Close language dropdown when menu is toggled
+    if (this.isLanguageDropdownOpen) {
+      this.isLanguageDropdownOpen = false;
+    }
+    
+    // Prevent body scroll when menu is open
+    if (this.isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   }
 
   closeMenu(): void {
     this.isMenuOpen = false;
+    document.body.style.overflow = ''; // Restore body scroll
   }
 
   toggleLanguageDropdown(): void {

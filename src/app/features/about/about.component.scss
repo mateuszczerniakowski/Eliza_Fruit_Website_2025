@@ -1,16 +1,195 @@
+// Variables
+$content-width-mobile: 100%;
+$content-width-tablet: 40rem;
+$content-width-desktop: 50rem;
+$title-extra-width: 8rem;
+$section-spacing-mobile: 3rem;
+$section-spacing-tablet: 4rem;
+$underline-width-mobile: 4rem;
+$underline-width-tablet: 6rem;
+$underline-height: 3px;
+$hero-height-mobile: 50vh;
+$hero-height-tablet: 60vh;
+$hero-height-small-mobile: 40vh;
+$container-padding-mobile: 2rem;
+$container-padding-tablet: 3rem;
+$container-padding-desktop: 4rem;
+
 .about-page {
   background-color: var(--theme-color-bg_color);
   color: var(--theme-color-text_dark);
   min-height: 100vh;
+  /* Set padding-top to 0 to ensure no extra spacing */
+  padding-top: 0;
+}
+
+.hero-banner {
+  width: 100%;
+  height: $hero-height-mobile; /* Smaller on mobile by default */
+  background-image: url('/assets/images/pexels-kindelmedia-7457211.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  /* Increase padding to account for the fixed navbar height */
+  padding-top: 4rem;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 87.5rem;
+  margin: 0 auto;
+  padding: $container-padding-mobile;
+  text-align: left;
+}
+
+.about-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: $content-width-mobile;
+  margin: 0 auto;
+  text-align: left;
+  
+  p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--theme-color-text_dark);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+    text-align: left;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: $underline-width-mobile;
+      height: $underline-height;
+      background-color: var(--theme-color-text_link);
+    }
+    
+    &.values-title {
+      margin-top: $section-spacing-mobile;
+      
+      &::after {
+        background-color: var(--theme-color-text_hover3);
+      }
+    }
+    
+    &.distinction-title {
+      margin-top: $section-spacing-mobile;
+      
+      &::after {
+        background-color: var(--theme-color-text_link2);
+      }
+    }
+  }
 }
 
 .page-title {
-  font-size: var(--font-size-section-title);
+  font-size: var(--font-size-section-title, 2rem);
   font-weight: 700;
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
+  color: white;
+  max-width: calc(#{$content-width-mobile} + #{$title-extra-width}); /* Base mobile max-width */
+}
+
+/* Responsive Styles */
+@media (min-width: 48rem) {
+  .hero-banner {
+    height: $hero-height-tablet;
+  }
+
+  .hero-content {
+    padding: 2rem;
+  }
+
+  .container {
+    padding: $container-padding-tablet $container-padding-mobile;
+  }
+
+  .about-content {
+    font-size: 1.2rem;
+    max-width: $content-width-tablet;
+    
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      
+      &::after {
+        width: $underline-width-tablet;
+      }
+      
+      &.values-title,
+      &.distinction-title {
+        margin-top: $section-spacing-tablet;
+      }
+    }
+  }
+  
+  .page-title {
+    max-width: calc(#{$content-width-tablet} + #{$title-extra-width}); /* Tablet max-width */
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero-banner {
+    height: $hero-height-tablet;
+  }
+
+  .container {
+    padding: $container-padding-desktop $container-padding-mobile;
+  }
+
+  .about-content {
+    max-width: $content-width-desktop;
+  }
+  
+  .page-title {
+    max-width: calc(#{$content-width-desktop} + #{$title-extra-width}); /* Desktop max-width */
+  }
+}
+
+@media (max-width: 30rem) {
+  .hero-banner {
+    height: $hero-height-small-mobile;
+  }
+  
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .about-content {
+    .section-title {
+      font-size: 1.5rem;
+    }
+  }
 }

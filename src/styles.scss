@@ -57,6 +57,16 @@
   --theme-color-input_bd_color: #DDDAD3;
   --theme-color-input_bd_hover: #C7C3BB;
 
+  /* Footer Colors */
+  --footer-bg-color: #1a1a1a;
+  --footer-text-primary: #ffffff;
+  --footer-text-secondary: #cccccc;
+  --footer-text-muted: #888888;
+  --footer-border-color: #333333;
+  --footer-social-border: #444444;
+  --footer-accent-color: #66bb6a;
+  --footer-accent-hover: #80AB3E;
+
   /* Font Size Variables */
   --font-size-xs: 0.75rem;     /* 12px */
   --font-size-sm: 0.875rem;    /* 14px */
@@ -87,6 +97,21 @@
   --letter-spacing-wide: 0.025em;      /* Wide spacing for emphasis */
   --letter-spacing-wider: 0.05em;      /* Extra wide for buttons/labels */
   --letter-spacing-widest: 0.1em;      /* Maximum spacing for special cases */
+}
+
+/* Global Container Class for Consistent Max-Width */
+.container {
+  max-width: 87.5rem; /* 1400px */
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @media (max-width: 64rem) {
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 48rem) {
+    padding: 0 1rem;
+  }
 }
 
 /* Set Halyard Display as the default font for the entire application */

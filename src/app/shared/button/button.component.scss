@@ -1,13 +1,14 @@
 .button {
-  padding: 1rem 2rem;
+  // Consistent sizing across all devices
+  padding: 0.875rem 1.75rem;
   border: none;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
-  min-width: 10rem;
+  min-width: 8rem;
   text-transform: uppercase;
   color: var(--theme-color-extra_dark);
   position: relative;
@@ -63,9 +64,10 @@
     background: var(--theme-color-alter_link);
     color: var(--theme-color-text_light);
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
-    font-weight: 700;
-    padding: 1.25rem 3rem;
-    min-width: 15rem;
+    font-weight: 500;
+    // Consistent orange sizing across all devices
+    padding: 1rem 2.5rem;
+    min-width: 12rem;
 
     &:hover:not(:disabled) {
       background: var(--theme-color-text_hover);
@@ -75,10 +77,17 @@
   }
 }
 
-@media (max-width: 48rem) {
+// Mobile and tablet: Full width buttons for better touch targets
+@media (max-width: 74.9375rem) {
   .button {
     width: 100%;
-    max-width: 20rem;
+    max-width: 18rem;
+    margin: 0 auto;
+    
+    // Small mobile: Smaller max-width
+    @media (max-width: 30rem) {
+      max-width: 16rem;
+    }
   }
 }
 

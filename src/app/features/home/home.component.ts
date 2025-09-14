@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ButtonComponent } from '../../shared/button/button.component';
 import { VideoOptimizationService } from '../../services/video-optimization.service';
@@ -16,7 +17,10 @@ export class HomeComponent implements AfterViewInit {
   currentDate = new Date();
   private isSlowConnection = false;
 
-  constructor(private videoOptimizationService: VideoOptimizationService) {}
+  constructor(
+    private videoOptimizationService: VideoOptimizationService,
+    private router: Router
+  ) {}
 
   ngAfterViewInit() {
     // Check connection speed and device capabilities
@@ -35,9 +39,10 @@ export class HomeComponent implements AfterViewInit {
       video.setAttribute('data-loaded', 'true');
     });
     
-    // Force video to play
+    // Force video to play and loop
     video.muted = true; // Required for autoplay in most browsers
     video.playsInline = true; // Required for mobile devices
+    video.loop = true; // Ensure looping is enabled programmatically
     
     // Attempt to play the video
     const playPromise = video.play();
@@ -118,6 +123,12 @@ export class HomeComponent implements AfterViewInit {
     
     video.addEventListener('canplay', () => {
       console.log('Video can start playing');
+    });
+  }
+
+  navigateToContact() {
+    this.router.navigate(['/contact']).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 }

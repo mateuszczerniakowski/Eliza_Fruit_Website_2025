@@ -1,3 +1,30 @@
+// Variables
+$navbar-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$toggle-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$menu-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$overlay-transition: all 0.3s ease;
+
+$mobile-breakpoint: 48rem;
+$tablet-breakpoint: 64rem;
+$large-screen-breakpoint: 75rem;
+
+$mobile-padding: 1rem;
+$tablet-padding: 1.5rem;
+$desktop-padding: 4rem;
+
+$mobile-font-size: 1.2rem;
+$mobile-icon-size: 1.5625rem;
+$language-font-size: 0.875rem;
+
+$transparent-white-low: rgba(255, 255, 255, 0.1);
+$transparent-white-medium: rgba(255, 255, 255, 0.2);
+$transparent-white-border: rgba(255, 255, 255, 0.3);
+$transparent-white-border-hover: rgba(255, 255, 255, 0.5);
+$transparent-white-text: rgba(255, 255, 255, 0.8);
+$transparent-black-overlay: rgba(0, 0, 0, 0.5);
+$transparent-black-menu: rgba(0, 0, 0, 0.1);
+$transparent-black-dropdown: rgba(0, 0, 0, 0.9);
+
 .navbar {
   position: fixed;
   top: 0;
@@ -6,7 +33,7 @@
   z-index: 1000;
   background: transparent;
   box-shadow: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: $navbar-transition;
 
   &.white {
     background: var(--theme-color-bg_color);
@@ -81,7 +108,7 @@
 
   .navbar-container {
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 $desktop-padding;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -141,7 +168,7 @@
           bottom: -0.125rem;
           left: 0;
           background: var(--theme-color-extra_dark);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: $navbar-transition;
         }
 
         &:hover {
@@ -169,11 +196,11 @@
     padding: 0.5rem;
 
     .toggle-line {
-      width: 1.5625rem;
+      width: $mobile-icon-size;
       height: 0.1875rem;
       background: var(--theme-color-extra_dark);
       margin: 0.1875rem 0;
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition: $toggle-transition;
     }
 
     &.active {
@@ -190,10 +217,6 @@
         transform: rotate(-45deg) translate(0.4rem, -0.4rem);
       }
     }
-  }
-
-  .language-selector {
-    position: relative;
   }
 
   .language-selector {
@@ -222,7 +245,7 @@
       }
 
       .language-arrow {
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: $menu-transition;
         font-size: 0.75rem;
         will-change: transform;
         display: inline-block;
@@ -253,7 +276,7 @@
       overflow: hidden;
       transform: scaleY(0);
       transform-origin: top;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: $menu-transition;
       z-index: 1000;
 
       &.visible {
@@ -275,7 +298,7 @@
         cursor: pointer;
         transition: color 0.3s ease;
         font-weight: 500;
-        font-size: 0.875rem;
+        font-size: $language-font-size;
 
         &:hover {
           color: var(--theme-color-text_hover);
@@ -295,11 +318,11 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: $transparent-black-overlay;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: -1;
+    transition: $overlay-transition;
+    z-index: 998;
 
     &.active {
       opacity: 1;
@@ -309,83 +332,144 @@
 }
 
 // Mobile Styles
-@media (max-width: 48rem) {
+@media (max-width: $mobile-breakpoint) {
   .navbar {
     .navbar-container {
-      padding: 1rem;
+      padding: $mobile-padding;
     }
 
     .mobile-toggle {
       display: flex;
+      z-index: 1001;
+      
+      &.active {
+        .toggle-line {
+          background: white !important;
+        }
+      }
     }
 
     .language-selector {
       position: absolute;
       top: 1rem;
       right: 4rem;
+      z-index: 1001;
 
       .language-button {
         padding: 0.4rem 0.8rem;
-        font-size: 0.875rem;
+        font-size: $language-font-size;
         min-width: 3.5rem;
-      }
-    }
-
-    .navbar-menu {
-      position: fixed;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: var(--theme-color-bg_color);
-      backdrop-filter: blur(15px);
-      flex-direction: column;
-      padding: 2rem 0;
-      gap: 0;
-      box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
-      transform: translateY(-1.25rem);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border-radius: 0 0 1.25rem 1.25rem;
-
-      &.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
+        color: white !important;
+        border-color: $transparent-white-border !important;
+        background: $transparent-white-low;
+        
+        &:hover {
+          background: $transparent-white-medium;
+          border-color: $transparent-white-border-hover !important;
+        }
       }
 
-      .navbar-item {
-        opacity: 0;
-        transform: translateY(1.25rem);
-        animation: slideInUp 0.5s ease forwards;
+      .language-arrow {
+        color: white !important;
+      }
 
-        &:nth-child(1) { animation-delay: 0.1s; }
-        &:nth-child(2) { animation-delay: 0.2s; }
-        &:nth-child(3) { animation-delay: 0.3s; }
-        &:nth-child(4) { animation-delay: 0.4s; }
-
-        .navbar-link {
-          display: block;
-          padding: 1rem 2rem;
-          font-size: 1.5em;
-          border-bottom: 1px solid var(--theme-color-bd_color);
-          white-space: nowrap;
+      .language-menu {
+        z-index: 1002;
+        background: $transparent-black-dropdown;
+        backdrop-filter: blur(10px);
+        border: 1px solid $transparent-white-medium;
+        
+        .language-option {
+          color: white !important;
           
-          &::after {
-            display: none;
-          }
-
           &:hover {
-            background: var(--theme-color-bd_color);
-            padding-left: 2.5rem;
+            background: $transparent-white-low;
+            color: white !important;
+          }
+          
+          &.active {
+            color: var(--theme-color-text_link) !important;
+            background: $transparent-white-medium;
           }
         }
       }
     }
 
-    &.active .navbar-menu .navbar-item {
-      opacity: 1;
-      transform: translateY(0);
+    .navbar-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: $transparent-black-menu;
+      backdrop-filter: blur(25px);
+      flex-direction: column;
+      padding: 8rem 0 2rem 0;
+      gap: 0;
+      box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 999;
+      overflow-y: auto;
+
+      &.active {
+        display: flex;
+      }
+
+      .navbar-item {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        &:hover {
+          background: none !important;
+          border: none !important;
+          border-bottom: none !important;
+        }
+
+        .navbar-link {
+          display: block !important;
+          padding: 1.5rem 2rem !important;
+          font-size: $mobile-font-size !important;
+          font-weight: 500 !important;
+          text-align: center !important;
+          white-space: nowrap !important;
+          color: white !important;
+          text-decoration: none !important;
+          width: 100% !important;
+          background: transparent !important;
+          border: 0 !important;
+          box-shadow: none !important;
+          outline: none !important;
+          
+          &:before,
+          &:after {
+            display: none !important;
+          }
+          
+          &:hover,
+          &:focus,
+          &:active,
+          &:visited {
+            background: transparent !important;
+            border: 0 !important;
+            color: white !important;
+            box-shadow: none !important;
+            outline: none !important;
+            text-decoration: none !important;
+          }
+
+          &.active {
+            color: var(--theme-color-text_link) !important;
+            font-weight: 600 !important;
+            border-bottom: 0 !important;
+          }
+        }
+      }
+    }
+
+    &.active .navbar-menu {
+      display: flex;
     }
   }
 }
@@ -403,10 +487,10 @@
 }
 
 // Tablet Styles
-@media (max-width: 64rem) and (min-width: 48.0625rem) {
+@media (max-width: $tablet-breakpoint) and (min-width: 48.0625rem) {
   .navbar {
     .navbar-container {
-      padding: 1rem 1.5rem;
+      padding: 1rem $tablet-padding;
     }
 
     .navbar-menu {
@@ -416,39 +500,11 @@
 }
 
 // Large Screen Enhancements
-@media (min-width: 75rem) {
+@media (min-width: $large-screen-breakpoint) {
   .navbar {
     .navbar-menu .navbar-item .navbar-link {
       &::after {
         background: var(--theme-color-extra_dark);
-      }
-    }
-  }
-}
-
-// Dark mode support using theme variables
-@media (prefers-color-scheme: dark) {
-  .navbar {
-    .navbar-menu .navbar-item .navbar-link {
-      color: var(--theme-color-text_light);
-    }
-
-    .mobile-toggle .toggle-line {
-      background: var(--theme-color-text_light);
-    }
-
-    @media (max-width: 48rem) {
-      .navbar-menu {
-        background: var(--theme-color-extra_bg_color);
-
-        .navbar-item .navbar-link {
-          color: var(--theme-color-text_light);
-          border-bottom-color: var(--theme-color-extra_bd_color);
-
-          &:hover {
-            background: var(--theme-color-extra_bd_color);
-          }
-        }
       }
     }
   }

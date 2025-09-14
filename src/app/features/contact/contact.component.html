@@ -1,3 +1,99 @@
 <div class="contact-page">
-  <h1 class="page-title">Contact</h1>
+  <div class="contact-header">
+    <p class="contact-label">{{ 'CONTACT.LABEL' | translate }}</p>
+    <h1 class="contact-title" [innerHTML]="'CONTACT.TITLE' | translate"></h1>
+  </div>
+
+  <div class="contact-content">
+    <div class="contact-image">
+      <img src="assets/images/video-poster.jpg" alt="Farm equipment in field" />
+    </div>
+    
+    <div class="contact-form-container">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="icon-user"></i>
+            <input 
+              type="text" 
+              formControlName="name"
+              [placeholder]="'CONTACT.FORM.NAME' | translate"
+              [class.error]="getFieldError('name')"
+            />
+          </div>
+          <div class="error-message" *ngIf="getFieldError('name')">
+            {{ getFieldError('name') }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="icon-phone"></i>
+            <input 
+              type="tel" 
+              formControlName="phone"
+              [placeholder]="'CONTACT.FORM.PHONE' | translate"
+              [class.error]="getFieldError('phone')"
+            />
+          </div>
+          <div class="error-message" *ngIf="getFieldError('phone')">
+            {{ getFieldError('phone') }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="icon-email"></i>
+            <input 
+              type="email" 
+              formControlName="email"
+              [placeholder]="'CONTACT.FORM.EMAIL' | translate"
+              [class.error]="getFieldError('email')"
+            />
+          </div>
+          <div class="error-message" *ngIf="getFieldError('email')">
+            {{ getFieldError('email') }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="icon-subject"></i>
+            <input 
+              type="text" 
+              formControlName="subject"
+              [placeholder]="'CONTACT.FORM.SUBJECT' | translate"
+              [class.error]="getFieldError('subject')"
+            />
+          </div>
+          <div class="error-message" *ngIf="getFieldError('subject')">
+            {{ getFieldError('subject') }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="icon-message"></i>
+            <textarea 
+              formControlName="message"
+              [placeholder]="'CONTACT.FORM.MESSAGE' | translate"
+              rows="5"
+              [class.error]="getFieldError('message')"
+            ></textarea>
+          </div>
+          <div class="error-message" *ngIf="getFieldError('message')">
+            {{ getFieldError('message') }}
+          </div>
+        </div>
+
+        <button 
+          type="submit" 
+          class="submit-btn"
+          [disabled]="contactForm.invalid"
+        >
+          {{ 'CONTACT.FORM.SUBMIT' | translate }}
+        </button>
+      </form>
+    </div>
+  </div>
 </div>

@@ -12,7 +12,68 @@
     "TITLE": "Our Agricultural Company",
     "CTA_PRIMARY": "Contact Us Now"
   },
+  "ABOUT": {
+    "PAGE_TITLE": "From family tradition to a global brand, 46 years of experience in delivering the freshest fruits and vegetables",
+    "SECTION_TITLE": "Our Story",
+    "PARAGRAPH_1": "In 1973, the family company Nea Dimitra was founded by Nikolaos Lazaridis. Its headquarters were located in Skydra, known as one of Greece's largest centers for fruit production and export. On the fertile plains of Macedonia, near the charming Pella and nestled among the green mountains and roaring waterfalls of Edessa, the company flourished. In these perfect natural conditions, we cultivated numerous varieties of juicy fruits, each one capturing the essence of the ancient Greek sun.",
+    "PARAGRAPH_2": "Thanks to its dynamic growth, in 1991 the company was transformed into Eliza Fruit S.A. Lazaridis Bros, constantly opening up to new markets and expanding its reach.",
+    "VALUES_TITLE": "Our Values",
+    "VALUES_PARAGRAPH_1": "Our company is a family of people united by a deep passion for fresh fruits and vegetables. Over 46 years of operation, we have learned to pay attention to every detail to ensure our customers' experiences are exceptional. We deeply believe that Eliza is not just another company, it's a family where everyone makes every effort to bring the highest quality fruits and vegetables to our consumers' tables.",
+    "VALUES_PARAGRAPH_2": "We are committed to delivering products of the highest quality while caring for the environment in which they are grown and processed. We put a lot of heart into building long-term relationships with our growers, because for us, people and human relationships are more important than profit. We are also dedicated to the principles of fair trade.",
+    "WHAT_SETS_US_APART_TITLE": "What sets us apart?",
+    "WHAT_SETS_US_APART_TEXT": "What distinguishes us from the competition is our many years of experience and our modern production facility in Greece. It provides us with full, direct control over all production and distribution processes - from harvesting and storage to selection, packaging, and shipping of our products. This allows us to guarantee that we deliver freshness you can rely on."
+  },
   "VIDEO": {
     "CLICK_TO_PLAY": "Click anywhere to play video"
+  },
+  "CONTACT": {
+    "LABEL": "CONTACT US",
+    "TITLE": "Have Questions?<br>Get in Touch!",
+    "FORM": {
+      "NAME": "Name",
+      "PHONE": "Phone",
+      "EMAIL": "Email Address",
+      "SUBJECT": "Subject",
+      "MESSAGE": "How can we help you? Feel free to get in touch!",
+      "SUBMIT": "GET IN TOUCH"
+    },
+    "VALIDATION": {
+      "NAME_REQUIRED": "Name is required",
+      "NAME_MIN_LENGTH": "Name must be at least 2 characters",
+      "PHONE_REQUIRED": "Phone is required",
+      "PHONE_INVALID": "Please enter a valid phone number",
+      "EMAIL_REQUIRED": "Email is required",
+      "EMAIL_INVALID": "Please enter a valid email address",
+      "SUBJECT_REQUIRED": "Subject is required",
+      "SUBJECT_MIN_LENGTH": "Subject must be at least 3 characters",
+      "MESSAGE_REQUIRED": "Message is required",
+      "MESSAGE_MIN_LENGTH": "Message must be at least 10 characters"
+    },
+    "SUCCESS_MESSAGE": "Thank you for your message! We will get back to you soon."
+  },
+  "FOOTER": {
+    "TITLE": "Hello, We Are Eliza Fruit",
+    "SUBTITLE": "Your source for fresh fruits and vegetables",
+    "ADDRESS": "Address",
+    "ADDRESS_LINE_1": "Poznańska 98 Hala OW1, Box E",
+    "ADDRESS_LINE_2": "05-850 Ożarów Mazowiecki",
+    "ADDRESS_LINE_3": "Poland",
+    "CONTACT": "Contact",
+    "EMAIL": "elizafruit@elizafruit.pl",
+    "PHONE": "22 721 61 00",
+    "OPENING_HOURS": "Opening Hours",
+    "HOURS": {
+      "SUNDAY": "Sunday",
+      "MONDAY": "Monday", 
+      "TUESDAY": "Tuesday",
+      "WEDNESDAY": "Wednesday",
+      "THURSDAY": "Thursday",
+      "FRIDAY": "Friday",
+      "SATURDAY": "Saturday",
+      "SUNDAY_TIME": "5am–12pm",
+      "WEEKDAY_TIME": "5am–4pm",
+      "SATURDAY_TIME": "Closed"
+    },
+    "COPYRIGHT": "Eliza Fruit Sp. z.o.o © {{year}}. All Rights Reserved."
   }
 }

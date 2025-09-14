@@ -1,0 +1,98 @@
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <!-- Main Title Section -->
+      <div class="footer-title">
+        <h2>{{ 'FOOTER.TITLE' | translate }}</h2>
+        <p class="footer-subtitle">{{ 'FOOTER.SUBTITLE' | translate }}</p>
+        
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Dribbble">
+            <i class="fab fa-dribbble"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Side Sections -->
+      <div class="footer-sections-right">
+        <!-- Contact Information -->
+        <div class="footer-info">
+          <!-- Address Section -->
+          <div class="address-section">
+            <h3>{{ 'FOOTER.ADDRESS' | translate }}</h3>
+            <p>{{ 'FOOTER.ADDRESS_LINE_1' | translate }}</p>
+            <p>{{ 'FOOTER.ADDRESS_LINE_2' | translate }}</p>
+            <p>{{ 'FOOTER.ADDRESS_LINE_3' | translate }}</p>
+          </div>
+
+          <!-- Contact Section -->
+          <div class="contact-section">
+            <h3>{{ 'FOOTER.CONTACT' | translate }}</h3>
+            <p><a href="mailto:{{ 'FOOTER.EMAIL' | translate }}" class="email-link">{{ 'FOOTER.EMAIL' | translate }}</a></p>
+            <p>{{ 'FOOTER.PHONE' | translate }}</p>
+          </div>
+
+          <!-- Opening Hours Section -->
+          <div class="opening-hours-section">
+            <h3>{{ 'FOOTER.OPENING_HOURS' | translate }}</h3>
+            <div class="hours-list">
+              <div class="hours-item">
+                <span class="day">{{ 'FOOTER.HOURS.SUNDAY' | translate }}</span>
+                <span class="time">{{ 'FOOTER.HOURS.SUNDAY_TIME' | translate }}</span>
+              </div>
+              <div class="hours-item">
+                <span class="day">{{ 'FOOTER.HOURS.MONDAY' | translate }}</span>
+                <span class="time">{{ 'FOOTER.HOURS.WEEKDAY_TIME' | translate }}</span>
+              </div>
+              <div class="hours-item">
+                <span class="day">{{ 'FOOTER.HOURS.TUESDAY' | translate }}</span>
+                <span class="time">{{ 'FOOTER.HOURS.WEEKDAY_TIME' | translate }}</span>
+              </div>
+              <div class="hours-item">
+                <span class="day">{{ 'FOOTER.HOURS.WEDNESDAY' | translate }}</span>
+                <span class="time">{{ 'FOOTER.HOURS.WEEKDAY_TIME' | translate }}</span>
+              </div>
+              <div class="hours-item">
+                <span class="day">{{ 'FOOTER.HOURS.THURSDAY' | translate }}</span>
+                <span class="time">{{ 'FOOTER.HOURS.WEEKDAY_TIME' | translate }}</span>
+              </div>
+              <div class="hours-item">
+                <span class="day">{{ 'FOOTER.HOURS.FRIDAY' | translate }}</span>
+                <span class="time">{{ 'FOOTER.HOURS.WEEKDAY_TIME' | translate }}</span>
+              </div>
+              <div class="hours-item">
+                <span class="day">{{ 'FOOTER.HOURS.SATURDAY' | translate }}</span>
+                <span class="time">{{ 'FOOTER.HOURS.SATURDAY_TIME' | translate }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Navigation and Copyright -->
+    <div class="footer-bottom">
+      <nav class="footer-nav">
+        <a (click)="navigateAndScrollToTop('/home')" [class.active]="router.url === '/home'">{{ 'NAV.HOME' | translate }}</a>
+        <a (click)="navigateAndScrollToTop('/products')" [class.active]="router.url === '/products'">{{ 'NAV.PRODUCTS' | translate }}</a>
+        <a (click)="navigateAndScrollToTop('/services')" [class.active]="router.url === '/services'">{{ 'NAV.SERVICES' | translate }}</a>
+        <a (click)="navigateAndScrollToTop('/about')" [class.active]="router.url === '/about'">{{ 'NAV.ABOUT' | translate }}</a>
+        <a (click)="navigateAndScrollToTop('/contact')" [class.active]="router.url === '/contact'">{{ 'NAV.CONTACT' | translate }}</a>
+      </nav>
+      
+      <div class="copyright">
+        <p>{{ 'FOOTER.COPYRIGHT' | translate: {year: currentYear} }}</p>
+      </div>
+    </div>
+  </div>
+</footer>

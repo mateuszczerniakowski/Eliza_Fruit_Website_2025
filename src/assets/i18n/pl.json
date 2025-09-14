@@ -12,7 +12,68 @@
     "TITLE": "Nasza Firma Rolnicza",
     "CTA_PRIMARY": "Skontaktuj się z nami"
   },
+  "ABOUT": {
+    "PAGE_TITLE": "Od rodzinnej tradycji do globalnej marki, 46 lat doświadczenia w dostarczaniu najświeszych owoców i warzyw",
+    "SECTION_TITLE": "Nasza Historia",
+    "PARAGRAPH_1": "W roku 1973 Nikolaos Lazaridis założył rodzinną firmę Nea Dimitra. Jej siedziba mieściła się w Skydrze, znanym ośrodku produkcji i eksportu owoców w Grecji. Na żyznych równinach Macedonii, pośród zielonych gór i szumiących wodospadów Edessy, firma rozkwitła. W tych doskonałych warunkach naturalnych uprawiano liczne gatunki soczystych owoców, w których zamknięte jest słońce starożytnej Grecji.",
+    "PARAGRAPH_2": "Dzięki dynamicznemu rozwojowi w 1991 roku firma przekształciła się w Eliza Fruit S.A. Lazaridis Bros, nieustannie otwierając się na nowe rynki i poszerzając swój zasięg.",
+    "VALUES_TITLE": "Nasze wartości",
+    "VALUES_PARAGRAPH_1": "Nasza firma to rodzina ludzi, których łączy głęboka pasja do świeżych owoców i warzyw. Przez ponad 46 lat działalności nauczyliśmy się dbać o każdy detal, aby doświadczenia naszych klientów były wyjątkowe. Głęboko wierzymy, że Eliza to nie tylko kolejna firma, to rodzina, w której każdy dokłada wszelkich starań, aby najwyższej jakości owoce i warzywa trafiały na stoły naszych konsumentów.",
+    "VALUES_PARAGRAPH_2": "Jesteśmy zaangażowani w dostarczanie produktów najwyższej jakości, jednocześnie dbając o ochronę środowiska, w którym są one uprawiane i przetwarzane. Wkładamy dużo serca w budowanie długoterminowych relacji z naszymi hodowcami, ponieważ dla nas ludzie i relacje międzyludzkie są ważniejsze od zysku. Jesteśmy również oddani zasadom sprawiedliwego handlu.",
+    "WHAT_SETS_US_APART_TITLE": "Co nas wyróżnia?",
+    "WHAT_SETS_US_APART_TEXT": "Na tle konkurencji wyróżnia nas nasze wieloletnie doświadczenie oraz nowoczesna hala produkcyjna w Grecji. Zapewnia nam ona pełną, bezpośrednią kontrolę nad wszystkimi procesami produkcji i dystrybucji — od zbiorów i magazynowania, aż po selekcję, pakowanie i wysyłkę naszych produktów. Dzięki temu możemy zagwarantować, że dostarczamy świeżość, na której możesz polegać."
+  },
   "VIDEO": {
     "CLICK_TO_PLAY": "Kliknij gdziekolwiek, aby odtworzyć wideo"
+  },
+  "CONTACT": {
+    "LABEL": "SKONTAKTUJ SIĘ Z NAMI",
+    "TITLE": "Masz pytania?<br>Skontaktuj się!",
+    "FORM": {
+      "NAME": "Imię",
+      "PHONE": "Telefon",
+      "EMAIL": "Adres email",
+      "SUBJECT": "Temat",
+      "MESSAGE": "Jak możemy Ci pomóc? Skontaktuj się z nami!",
+      "SUBMIT": "WYŚLIJ WIADOMOŚĆ"
+    },
+    "VALIDATION": {
+      "NAME_REQUIRED": "Imię jest wymagane",
+      "NAME_MIN_LENGTH": "Imię musi mieć co najmniej 2 znaki",
+      "PHONE_REQUIRED": "Telefon jest wymagany",
+      "PHONE_INVALID": "Proszę podać prawidłowy numer telefonu",
+      "EMAIL_REQUIRED": "Email jest wymagany",
+      "EMAIL_INVALID": "Proszę podać prawidłowy adres email",
+      "SUBJECT_REQUIRED": "Temat jest wymagany",
+      "SUBJECT_MIN_LENGTH": "Temat musi mieć co najmniej 3 znaki",
+      "MESSAGE_REQUIRED": "Wiadomość jest wymagana",
+      "MESSAGE_MIN_LENGTH": "Wiadomość musi mieć co najmniej 10 znaków"
+    },
+    "SUCCESS_MESSAGE": "Dziękujemy za wiadomość! Wkrótce się z Tobą skontaktujemy."
+  },
+  "FOOTER": {
+    "TITLE": "Cześć, jesteśmy Eliza Fruit",
+    "SUBTITLE": "Twoje źródło świeżych owoców i warzyw",
+    "ADDRESS": "Adres",
+    "ADDRESS_LINE_1": "Poznańska 98 Hala OW1, Box E",
+    "ADDRESS_LINE_2": "05-850 Ożarów Mazowiecki",
+    "ADDRESS_LINE_3": "Polska",
+    "CONTACT": "Kontakt",
+    "EMAIL": "elizafruit@elizafruit.pl",
+    "PHONE": "22 721 61 00",
+    "OPENING_HOURS": "Godziny otwarcia",
+    "HOURS": {
+      "SUNDAY": "Niedziela",
+      "MONDAY": "Poniedziałek",
+      "TUESDAY": "Wtorek", 
+      "WEDNESDAY": "Środa",
+      "THURSDAY": "Czwartek",
+      "FRIDAY": "Piątek",
+      "SATURDAY": "Sobota",
+      "SUNDAY_TIME": "5:00–12:00",
+      "WEEKDAY_TIME": "5:00–16:00",
+      "SATURDAY_TIME": "Nieczynne"
+    },
+    "COPYRIGHT": "Eliza Fruit Sp. z.o.o  © {{year}}. Wszelkie prawa zastrzeżone."
   }
 }

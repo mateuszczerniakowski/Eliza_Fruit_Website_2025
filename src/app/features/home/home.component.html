@@ -9,7 +9,6 @@
     loading="lazy"
     class="video-element"
     poster="assets/images/video-poster.jpg">
-    <!-- Optimized MP4 videos -->
     <source src="assets/videos/background_720p.mp4" type="video/mp4">
     <source src="assets/videos/background_1080p.mp4" type="video/mp4">
   </video>
@@ -22,22 +21,12 @@
       <p class="hero__subtitle">{{ 'HERO.SUBTITLE' | translate }}</p>
       <h1 class="hero__title">{{ 'HERO.TITLE' | translate }}</h1>
       <div class="hero__actions">
-        <app-button variant="orange">{{ 'HERO.CTA_PRIMARY' | translate }}</app-button>
+        <app-button variant="orange" (click)="navigateToContact()">{{ 'HERO.CTA_PRIMARY' | translate }}</app-button>
       </div>
     </div>
   </section>
-  
-  <div class="deployment-info">
-    <p class="deployment-text">
-      🚀 Auto-deployed from dev branch | Last updated: {{ currentDate | date:'short' }}
-    </p>
-  </div>
   
   <div class="home-page">
   <h1 class="page-title">Home</h1>
 </div>
 </main>
-
-<footer class="deployment-info">
-  <p class="deployment-text">Auto-deployed from dev branch • Last updated: {{ currentDate | date:'medium' }}</p>
-</footer>
