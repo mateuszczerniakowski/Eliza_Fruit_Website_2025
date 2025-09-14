@@ -4,7 +4,7 @@ export interface VideoQuality {
   width: number;
   height: number;
   src: string;
-  format: 'webm' | 'mp4';
+  format: 'mp4';
   quality: 'low' | 'medium' | 'high' | 'ultra';
   estimatedSize: number; // in MB
 }
@@ -15,16 +15,9 @@ export interface VideoQuality {
 export class VideoOptimizationService {
   
   private readonly videoQualities: VideoQuality[] = [
-    // WebM versions (better compression)
-    { width: 1280, height: 720, src: 'assets/videos/background_720p.webm', format: 'webm', quality: 'medium', estimatedSize: 3 },
-    { width: 1920, height: 1080, src: 'assets/videos/background_1080p.webm', format: 'webm', quality: 'high', estimatedSize: 5 },
-    
-    // MP4 fallbacks
-    { width: 1280, height: 720, src: 'assets/videos/background_720p.mp4', format: 'mp4', quality: 'medium', estimatedSize: 4 },
-    { width: 1920, height: 1080, src: 'assets/videos/background_1080p.mp4', format: 'mp4', quality: 'high', estimatedSize: 7 },
-    
-    // Original as last resort
-    { width: 3840, height: 2160, src: 'assets/videos/13896677_3840_2160_30fps.mp4', format: 'mp4', quality: 'ultra', estimatedSize: 56 }
+    // Optimized MP4 videos
+    { width: 1280, height: 720, src: 'assets/videos/background_720p.mp4', format: 'mp4', quality: 'medium', estimatedSize: 3 },
+    { width: 1920, height: 1080, src: 'assets/videos/background_1080p.mp4', format: 'mp4', quality: 'high', estimatedSize: 7 }
   ];
 
   /**
@@ -56,13 +49,8 @@ export class VideoOptimizationService {
       return true;
     });
     
-    // Sort by format preference (WebM first) and quality
+    // Sort by quality (highest first)
     return filteredQualities.sort((a, b) => {
-      // Prefer WebM format
-      if (a.format === 'webm' && b.format === 'mp4') return -1;
-      if (a.format === 'mp4' && b.format === 'webm') return 1;
-      
-      // Then by quality
       const qualityOrder = { low: 0, medium: 1, high: 2, ultra: 3 };
       return qualityOrder[b.quality] - qualityOrder[a.quality];
     });
@@ -110,7 +98,7 @@ export class VideoOptimizationService {
     qualities.forEach(quality => {
       const source = document.createElement('source');
       source.src = quality.src;
-      source.type = quality.format === 'webm' ? 'video/webm' : 'video/mp4';
+      source.type = 'video/mp4';
       videoElement.appendChild(source);
     });
     
