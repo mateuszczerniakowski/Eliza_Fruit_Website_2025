@@ -15,7 +15,14 @@
     "docker:build": "docker build -t eliza-fruit-website .",
     "docker:run": "docker run -p 8080:80 eliza-fruit-website",
     "docker:compose": "docker-compose up -d",
-    "deploy:gh-pages": "npm run build:gh-pages && touch dist/eliza_fruit_website/.nojekyll && git subtree push --prefix dist/eliza_fruit_website origin gh-pages"
+    "deploy:gh-pages": "npm run build:gh-pages && touch dist/eliza_fruit_website/.nojekyll && git subtree push --prefix dist/eliza_fruit_website origin gh-pages",
+    "deploy:webiste": "npm run build -- --base-href='/' && touch dist/eliza_fruit_website/.nojekyll && cd dist/eliza_fruit_website && mv browser/* . && rmdir browser && cp ../../webiste-dockerfile ./Dockerfile && cp ../../webiste-nginx.conf ./nginx.conf && git init && git remote add origin https://github.com/mateuszczerniakowski/webiste.git && git add . && git commit -m 'Deploy optimized Angular build with Docker support' && git branch -M main && git push -f origin main",
+    "release:patch": "npm version patch && git push origin day1 --tags",
+    "release:minor": "npm version minor && git push origin day1 --tags",
+    "release:major": "npm version major && git push origin day1 --tags",
+    "lint": "ng lint || echo 'Linting not configured - install @angular-eslint/schematics'",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
+    "bundle:analyze": "npm run build:analyze && echo 'Open http://127.0.0.1:8888 to view bundle analysis'"
   },
   "private": true,
   "dependencies": {
